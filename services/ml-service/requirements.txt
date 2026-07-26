@@ -1,4 +1,4 @@
--e ../../libs
+
 fastapi
 uvicorn
 pydantic-settings
