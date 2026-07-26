@@ -1,7 +1,6 @@
 import os
 import sys
 
-
 sys.path.append(os.path.abspath("./libs"))
 
 from aegis.crypto.canonical import canonicalize

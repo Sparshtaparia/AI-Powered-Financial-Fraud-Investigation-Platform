@@ -18,8 +18,7 @@ class LedgerRepository:
         try:
             with self._get_connection() as conn:
                 with conn.cursor() as cur:
-                    cur.execute(
-                        """
+                    cur.execute("""
                         CREATE TABLE IF NOT EXISTS evidence_bundle (
                             id UUID PRIMARY KEY,
                             case_id VARCHAR(255) NOT NULL,
@@ -37,8 +36,7 @@ class LedgerRepository:
                             bundle_count INT NOT NULL,
                             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                         );
-                    """
-                    )
+                    """)
                 conn.commit()
         except Exception as e:
             logger.error(f"Failed to initialize Postgres schema: {e}")

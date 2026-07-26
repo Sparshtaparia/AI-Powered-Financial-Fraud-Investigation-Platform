@@ -2,7 +2,6 @@ import os
 import sys
 from unittest.mock import patch
 
-
 sys.path.append(os.path.abspath("./services/graph-service"))
 sys.path.append(os.path.abspath("./libs"))
 

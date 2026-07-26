@@ -1,6 +1,5 @@
 import sys
 
-
 sys.path.append("./services/ml-service")
 sys.path.append("./libs")
 

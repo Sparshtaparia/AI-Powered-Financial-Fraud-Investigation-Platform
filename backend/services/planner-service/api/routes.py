@@ -80,7 +80,7 @@ async def investigate(req: InvestigateRequest):
         "case_id": final_state["case_id"],
         "status": final_state["status"],
         "errors": final_state["errors"],
-        "summary": final_state["summary"].model_dump()
-        if final_state.get("summary")
-        else None,
+        "summary": (
+            final_state["summary"].model_dump() if final_state.get("summary") else None
+        ),
     }

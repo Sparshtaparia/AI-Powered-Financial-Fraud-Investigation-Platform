@@ -11,9 +11,9 @@ async def run(state: InvestigationState) -> InvestigationState:
         case_id=state["case_id"],
         data={
             "customer_id": customer_id,
-            "summary": state.get("summary").model_dump()
-            if state.get("summary")
-            else {},
+            "summary": (
+                state.get("summary").model_dump() if state.get("summary") else {}
+            ),
         },
     )
     state["evidence_commit"] = result
