@@ -1,11 +1,11 @@
-from langgraph.graph import StateGraph, END
-from core.state import InvestigationState
-
-from agents.planning_agent import run as planning_node
-from agents.ml_agent import run as ml_node
-from agents.graph_agent import run as graph_node
 from agents.evidence_agent import run as evidence_node
+from agents.graph_agent import run as graph_node
+from agents.ml_agent import run as ml_node
+from agents.planning_agent import run as planning_node
 from agents.summary_agent import run as summary_node
+from core.state import InvestigationState
+from langgraph.graph import END, StateGraph
+
 
 def build_graph():
     workflow = StateGraph(InvestigationState)
@@ -25,5 +25,6 @@ def build_graph():
     workflow.add_edge("summary", END)
 
     return workflow.compile()
+
 
 app_workflow = build_graph()

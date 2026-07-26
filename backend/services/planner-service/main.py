@@ -1,13 +1,14 @@
-from fastapi import FastAPI
-from api.routes import router
+import time
+from contextlib import asynccontextmanager
+
 from aegis.logging.logger import get_logger
 from aegis.middleware.correlation import CorrelationMiddleware
+from api.routes import router
+from fastapi import FastAPI
 from prometheus_fastapi_instrumentator import Instrumentator
 
-from contextlib import asynccontextmanager
-import time
-
 START_TIME = time.time()
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -16,7 +17,7 @@ async def lifespan(app: FastAPI):
 
 logger = get_logger("planner-service")
 
-app = FastAPI(title='planner-service', lifespan=lifespan)
+app = FastAPI(title="planner-service", lifespan=lifespan)
 app.add_middleware(CorrelationMiddleware)
 
 # Prometheus metrics

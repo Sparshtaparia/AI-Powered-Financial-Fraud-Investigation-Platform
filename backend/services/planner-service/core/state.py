@@ -1,5 +1,7 @@
-from typing import TypedDict, Optional, List, Dict, Any
-from aegis.schemas.planner import ServiceResult, InvestigationSummary
+from typing import Any, Dict, List, Optional, TypedDict
+
+from aegis.schemas.planner import InvestigationSummary, ServiceResult
+
 
 class InvestigationState(TypedDict):
     request_id: str

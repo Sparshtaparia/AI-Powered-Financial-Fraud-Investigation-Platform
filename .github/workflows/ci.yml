@@ -52,7 +52,12 @@ jobs:
         run: flake8 backend/libs/ backend/services/ tests/ --count --max-complexity=10 --max-line-length=127 --statistics
 
       - name: Static Type Checking (MyPy)
-        run: mypy backend/libs/ backend/services/
+        run: mypy backend/libs/
+          mypy backend/services/gateway-service/
+          mypy backend/services/planner-service/
+          mypy backend/services/ml-service/
+          mypy backend/services/graph-service/
+          mypy backend/services/evidence-service/
 
       - name: Security Scan (Bandit)
         run: bandit -r backend/libs/ backend/services/

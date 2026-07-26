@@ -1,5 +1,6 @@
-from core.state import InvestigationState
 from clients.graph_client import get_customer_context
+from core.state import InvestigationState
+
 
 async def run(state: InvestigationState) -> InvestigationState:
     result = await get_customer_context(state["customer_id"])

@@ -1,5 +1,6 @@
 from repositories.neo4j_repository import neo4j_repo
 
+
 def get_subgraph(account_id: str, depth: int = 1):
     query = """
     MATCH path = (a:Account {id: $account_id})-[*1..2]-(b)

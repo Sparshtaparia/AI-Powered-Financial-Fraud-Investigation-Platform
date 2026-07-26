@@ -1,6 +1,8 @@
 import os
+
 import pandas as pd
 from core.config import settings
+
 
 class FeatureStore:
     def __init__(self):
@@ -8,10 +10,10 @@ class FeatureStore:
         self.load()
 
     def load(self):
-        path = os.path.join(settings.feature_store_path, 'features.parquet')
+        path = os.path.join(settings.feature_store_path, "features.parquet")
         if os.path.exists(path):
             self.df = pd.read_parquet(path)
-            self.df.set_index('customer_id', inplace=True)
+            self.df.set_index("customer_id", inplace=True)
         else:
             self.df = pd.DataFrame()
 

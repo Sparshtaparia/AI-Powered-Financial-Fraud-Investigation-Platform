@@ -1,14 +1,16 @@
-import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
+import sys
 
-from libs.aegis.config.settings import AegisSettings
-from services.graph_service.repositories.neo4j_repository import neo4j_repo
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../")))
+
 import logging
+
+from services.graph_service.repositories.neo4j_repository import neo4j_repo
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("seed")
+
 
 def seed():
     neo4j_repo.connect()
@@ -18,7 +20,7 @@ def seed():
 
     # Deterministic seed data
     queries = [
-        "MATCH (n) DETACH DELETE n", # Clean graph
+        "MATCH (n) DETACH DELETE n",  # Clean graph
         """
         CREATE (c1:Customer {id: 'CUST_521', name: 'Alice', risk_score: 0.1})
         CREATE (c2:Customer {id: 'CUST_999', name: 'Bob', risk_score: 0.9})
@@ -27,7 +29,7 @@ def seed():
         CREATE (c1)-[:OWNS]->(a1)
         CREATE (c2)-[:OWNS]->(a2)
         CREATE (a1)-[:TRANSFERRED_TO {amount: 2000, date: '2023-01-01'}]->(a2)
-        """
+        """,
     ]
 
     for q in queries:
@@ -35,6 +37,7 @@ def seed():
 
     logger.info("Database successfully seeded.")
     neo4j_repo.close()
+
 
 if __name__ == "__main__":
     seed()

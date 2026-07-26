@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 
+
 class AegisSettings(BaseSettings):
     environment: str = "development"
     model_artifacts_path: str = "../../artifacts/models"

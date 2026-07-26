@@ -1,10 +1,12 @@
 import time
-from core.config import settings
-from aegis.schemas.planner import ServiceResult
-from aegis.logging.logger import get_logger
+
 from aegis.http.client import get_async_client
+from aegis.logging.logger import get_logger
+from aegis.schemas.planner import ServiceResult
+from core.config import settings
 
 logger = get_logger("graph_client")
+
 
 async def get_customer_context(customer_id: str) -> ServiceResult:
     start_time = time.time()
@@ -20,7 +22,7 @@ async def get_customer_context(customer_id: str) -> ServiceResult:
                 service="graph-service",
                 success=True,
                 latency_ms=(time.time() - start_time) * 1000,
-                payload=payload
+                payload=payload,
             )
     except Exception as e:
         logger.error(f"Graph Service failed: {e}")
@@ -28,5 +30,5 @@ async def get_customer_context(customer_id: str) -> ServiceResult:
             service="graph-service",
             success=False,
             latency_ms=(time.time() - start_time) * 1000,
-            error=str(e)
+            error=str(e),
         )

@@ -1,22 +1,29 @@
-from fastapi import APIRouter
-import uuid
 import time
-from aegis.schemas.planner import InvestigateRequest
-from aegis.schemas.health import HealthResponse, DependencyHealth
+import uuid
+
 from aegis.http.client import get_async_client
-from workflow.graph import app_workflow
+from aegis.schemas.health import DependencyHealth, HealthResponse
+from aegis.schemas.planner import InvestigateRequest
 from core.config import settings
+from fastapi import APIRouter
+from workflow.graph import app_workflow
 
 router = APIRouter()
+
 
 @router.get("/health", response_model=HealthResponse)
 async def health():
     import main
+
     uptime = int(time.time() - main.START_TIME)
 
     deps = []
     async with get_async_client() as client:
-        for name, url in [("ml-service", settings.ml_service_url), ("graph-service", settings.graph_service_url), ("evidence-service", settings.evidence_service_url)]:
+        for name, url in [
+            ("ml-service", settings.ml_service_url),
+            ("graph-service", settings.graph_service_url),
+            ("evidence-service", settings.evidence_service_url),
+        ]:
             status = "unhealthy"
             try:
                 r = await client.get(f"{url}/health")
@@ -33,8 +40,9 @@ async def health():
         service="planner-service",
         version="1.0.0",
         dependencies=deps,
-        uptime_seconds=uptime
+        uptime_seconds=uptime,
     )
+
 
 @router.post("/investigate")
 async def investigate(req: InvestigateRequest):
@@ -49,7 +57,7 @@ async def investigate(req: InvestigateRequest):
         "timeline": [],
         "summary": None,
         "errors": [],
-        "metadata": {}
+        "metadata": {},
     }
 
     final_state = await app_workflow.ainvoke(initial_state)
@@ -58,5 +66,7 @@ async def investigate(req: InvestigateRequest):
         "case_id": final_state["case_id"],
         "status": final_state["status"],
         "errors": final_state["errors"],
-        "summary": final_state["summary"].model_dump() if final_state.get("summary") else None
+        "summary": final_state["summary"].model_dump()
+        if final_state.get("summary")
+        else None,
     }

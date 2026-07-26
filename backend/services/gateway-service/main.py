@@ -1,13 +1,12 @@
+from aegis.middleware.correlation import CorrelationMiddleware
+from api.routes import router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from prometheus_fastapi_instrumentator import Instrumentator
 from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
-
-from api.routes import router
-from aegis.middleware.correlation import CorrelationMiddleware
-from prometheus_fastapi_instrumentator import Instrumentator
+from slowapi.util import get_remote_address
 
 limiter = Limiter(key_func=get_remote_address, default_limits=["60/minute"])
 

@@ -1,5 +1,6 @@
-from core.state import InvestigationState
 from clients.ml_client import get_risk_assessment
+from core.state import InvestigationState
+
 
 async def run(state: InvestigationState) -> InvestigationState:
     result = await get_risk_assessment(state["customer_id"])

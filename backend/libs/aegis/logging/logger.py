@@ -1,6 +1,6 @@
+import json
 import logging
 import sys
-import json
 from datetime import datetime
 
 # We must import contextvar safely if not running in web context
@@ -8,6 +8,7 @@ try:
     from aegis.middleware.correlation import request_id_var
 except ImportError:
     request_id_var = None
+
 
 class JsonFormatter(logging.Formatter):
     def format(self, record):
@@ -17,9 +18,10 @@ class JsonFormatter(logging.Formatter):
             "service": record.name,
             "request_id": req_id,
             "level": record.levelname,
-            "message": record.getMessage()
+            "message": record.getMessage(),
         }
         return json.dumps(log_record)
+
 
 def get_logger(name: str):
     logger = logging.getLogger(name)

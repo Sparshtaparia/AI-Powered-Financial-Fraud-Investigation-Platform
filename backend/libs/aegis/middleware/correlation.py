@@ -1,9 +1,11 @@
 import uuid
-from starlette.middleware.base import BaseHTTPMiddleware
 from contextvars import ContextVar
+
 from fastapi import Request
+from starlette.middleware.base import BaseHTTPMiddleware
 
 request_id_var: ContextVar[str] = ContextVar("request_id", default="")
+
 
 class CorrelationMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):

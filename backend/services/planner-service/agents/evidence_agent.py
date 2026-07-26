@@ -1,5 +1,6 @@
-from core.state import InvestigationState
 from clients.evidence_client import commit_evidence
+from core.state import InvestigationState
+
 
 async def run(state: InvestigationState) -> InvestigationState:
     # Collect context to commit
