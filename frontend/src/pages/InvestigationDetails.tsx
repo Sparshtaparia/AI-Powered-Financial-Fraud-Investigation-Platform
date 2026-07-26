@@ -9,7 +9,7 @@ export default function InvestigationDetails() {
     }
 
     const riskLabel = caseData.summary?.risk?.label || "UNKNOWN";
-    const riskScore = caseData.summary?.risk?.risk || 0;
+    const riskScore = caseData.summary?.risk?.risk_score || 0;
     const isHigh = riskLabel === 'HIGH';
 
     return (
@@ -39,7 +39,7 @@ export default function InvestigationDetails() {
                                 </div>
                                 <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-panel p-4 rounded border border-red-500/30">
                                     <div className="font-bold text-slate-100">Partial Failure</div>
-                                    <div className="text-slate-400 text-sm mt-1">{caseData.summary.audit[0].errors[0]}</div>
+                                    <div className="text-slate-400 text-sm mt-1">{caseData.summary.audit?.[0]?.errors?.[0]}</div>
                                 </div>
                             </div>
                         ) : null}

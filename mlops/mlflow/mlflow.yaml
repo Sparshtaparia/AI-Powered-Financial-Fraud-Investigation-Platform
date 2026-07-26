@@ -1,0 +1,19 @@
+# MLOps MLflow Tracking Configuration
+# SG CIB AML Platform
+
+server:
+  host: "0.0.0.0"
+  port: 5000
+  backend_store_uri: "postgresql://postgres:postgres@localhost:5432/mlflow"
+  default_artifact_root: "s3://aegis-aml-mlflow-artifacts/"
+
+tracking:
+  experiment_name: "aegis_aml_anomaly_detection"
+  tags:
+    project: "Financial Crime Intelligence"
+    department: "Compliance Ops"
+    environment: "dev"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

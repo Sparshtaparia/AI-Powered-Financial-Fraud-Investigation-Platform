@@ -60,7 +60,21 @@ async def investigate(req: InvestigateRequest):
         "metadata": {},
     }
 
-    final_state = await app_workflow.ainvoke(initial_state)
+    if req.query:
+        try:
+            from workflow.llm_graph import llm_workflow
+
+            # LLM-based execution
+            final_state = await llm_workflow.ainvoke(initial_state)
+        except Exception as e:
+            # Fallback to deterministic execution if LLM fails
+            initial_state["errors"].append(
+                f"LLM execution failed: {str(e)}. Falling back to deterministic planner."
+            )
+            final_state = await app_workflow.ainvoke(initial_state)
+    else:
+        # Fallback for empty query or normal structured request
+        final_state = await app_workflow.ainvoke(initial_state)
 
     return {
         "case_id": final_state["case_id"],

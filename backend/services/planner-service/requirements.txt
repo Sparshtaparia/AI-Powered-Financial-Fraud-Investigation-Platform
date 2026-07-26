@@ -8,3 +8,7 @@ httpx
 prometheus-fastapi-instrumentator
 
 prometheus-fastapi-instrumentator
+google-genai
+langgraph
+langchain-core
+

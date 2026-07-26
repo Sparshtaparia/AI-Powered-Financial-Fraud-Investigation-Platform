@@ -1,24 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-soc-bg text-slate-200 antialiased h-screen overflow-hidden;
+    @apply bg-aegis-base text-gray-300 font-sans antialiased h-screen overflow-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-white;
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-soc-bg;
+    @apply bg-aegis-base;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-600 rounded;
+    @apply bg-gray-700 rounded-full hover:bg-gray-600 transition-colors;
   }
 }
 
 .glass-panel {
-  @apply bg-soc-panel/80 backdrop-blur-md border border-soc-border rounded-xl shadow-xl;
+  @apply bg-aegis-surface border border-aegis-border rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)];
 }

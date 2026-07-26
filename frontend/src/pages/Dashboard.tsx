@@ -1,40 +1,44 @@
-import { Activity, AlertTriangle, CheckCircle, Clock } from 'lucide-react'
+import InvestigationCommandBar from '../components/InvestigationCommandBar';
+import PremiumKpiCards from '../components/PremiumKpiCards';
+import InvestigationOverview from '../components/InvestigationOverview';
+import RiskDonutChart from '../components/RiskDonutChart';
+import RecentInvestigationsTable from '../components/RecentInvestigationsTable';
+import InvestigationActivity from '../components/InvestigationActivity';
+import InvestigationSummary from '../components/InvestigationSummary';
+import { useInvestigationStore } from '../store/investigationStore';
 
 export default function Dashboard() {
+    const { caseData, isInvestigating } = useInvestigationStore();
+
     return (
-        <div className="h-full space-y-6">
-            <div className="grid grid-cols-4 gap-6">
-                <MetricCard title="Active Cases" value="24" icon={Activity} color="text-brand" />
-                <MetricCard title="High Risk Alerts" value="7" icon={AlertTriangle} color="text-red-500" />
-                <MetricCard title="Avg Latency" value="1.2s" icon={Clock} color="text-yellow-500" />
-                <MetricCard title="System Health" value="100%" icon={CheckCircle} color="text-green-500" />
+        <div className="flex h-full w-full bg-aegis-base">
+            {/* Left/Main Column - Scrollable */}
+            <div className="flex-1 overflow-y-auto px-8 py-6 h-full custom-scrollbar">
+                <div className="max-w-[1200px] mx-auto flex flex-col gap-6">
+                    <InvestigationCommandBar />
+                    <PremiumKpiCards />
+                    
+                    {(caseData || isInvestigating) && (
+                        <>
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:h-64 h-auto">
+                                <div className="lg:col-span-2 h-full">
+                                    <InvestigationOverview />
+                                </div>
+                                <div className="col-span-1 h-full">
+                                    <RiskDonutChart />
+                                </div>
+                            </div>
+                            <InvestigationSummary />
+                        </>
+                    )}
+                    <RecentInvestigationsTable />
+                </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 h-96">
-                <div className="col-span-2 glass-panel p-6">
-                    <h2 className="text-lg font-semibold mb-4 text-slate-200 border-b border-soc-border pb-2">Recent Investigations</h2>
-                    {/* Placeholder for table */}
-                    <div className="text-slate-400 text-sm italic mt-10 text-center">Awaiting data pipeline...</div>
-                </div>
-                <div className="glass-panel p-6">
-                    <h2 className="text-lg font-semibold mb-4 text-slate-200 border-b border-soc-border pb-2">Planner Events</h2>
-                    <div className="text-slate-400 text-sm italic mt-10 text-center">Stream idle...</div>
-                </div>
+            {/* Right Column: Execution Timeline - Fixed Height */}
+            <div className="w-[400px] flex-shrink-0 hidden xl:block h-full border-l border-aegis-border bg-aegis-surface">
+                <InvestigationActivity />
             </div>
         </div>
-    )
-}
-
-function MetricCard({title, value, icon: Icon, color}: any) {
-    return (
-        <div className="glass-panel p-6 flex items-center justify-between hover:-translate-y-1 transition-transform duration-300">
-            <div>
-                <p className="text-sm font-medium text-slate-400 mb-1">{title}</p>
-                <h3 className="text-3xl font-bold text-slate-100">{value}</h3>
-            </div>
-            <div className={`p-4 rounded-full bg-slate-800/50 ${color}`}>
-                <Icon className="w-8 h-8" />
-            </div>
-        </div>
-    )
+    );
 }

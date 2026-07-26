@@ -2,7 +2,7 @@ import time
 
 from aegis.logging.logger import get_logger
 from aegis.schemas.health import HealthResponse
-from aegis.schemas.ml import (PredictRequest, PredictResponse)
+from aegis.schemas.ml import PredictRequest, PredictResponse
 from fastapi import APIRouter, HTTPException
 from repositories.feature_store import FeatureStore
 from services.loader import ModelLoader

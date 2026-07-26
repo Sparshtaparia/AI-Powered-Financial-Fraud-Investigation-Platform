@@ -1,0 +1,140 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-warm-cream: #F7F4EF;
+  --color-warm-cream-dark: #F4F1EA;
+  --color-deep-black: #050505;
+  --color-charcoal: #0B0D10;
+  --color-charcoal-light: #111315;
+
+  --color-electric-mint: #18D68B;
+  --color-butter-yellow: #F6E85D;
+  --color-coral-pink: #FF6B73;
+  --color-sky-cyan: #BFEFF3;
+
+  --color-text-primary: #050505;
+  --color-text-secondary: rgba(5, 5, 5, 0.6);
+  --color-text-inverse: #F7F4EF;
+  --color-text-inverse-secondary: rgba(247, 244, 239, 0.6);
+
+  --color-border-subtle: rgba(0, 0, 0, 0.06);
+  --color-border-inverse: rgba(255, 255, 255, 0.1);
+
+  --font-body: var(--font-inter);
+  --font-display: var(--font-space);
+
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-3xl: 40px;
+
+  --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.04);
+  --shadow-glow-mint: 0 0 40px rgba(24, 214, 139, 0.15);
+  --shadow-glow-cyan: 0 0 60px rgba(191, 239, 243, 0.2);
+
+  --animate-float-slow: float-slow 7s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 2.8s ease-in-out infinite;
+  --animate-shimmer: shimmer 6s ease-in-out infinite;
+  --animate-data-flow: data-flow 3s linear infinite;
+  --animate-blink-soft: blink-soft 4s ease-in-out infinite;
+  --animate-glow-drift: glow-drift 9s ease-in-out infinite;
+  --animate-feed-row-1: feed-row 4s ease-in-out infinite;
+  --animate-feed-row-2: feed-row 4s ease-in-out 1.2s infinite;
+  --animate-feed-row-3: feed-row 4s ease-in-out 2.4s infinite;
+  --animate-feed-row-4: feed-row 4s ease-in-out 3.6s infinite;
+  
+  --animate-blink-cursor: blink-cursor 1s step-end infinite;
+  --animate-feed-slide: feed-slide 6s ease-in-out infinite;
+  --animate-chart-pulse: chart-pulse 4s ease-in-out infinite;
+  --animate-draw-line: draw-line 5.5s ease-in-out infinite;
+  --animate-scan-line: scan-line 5.5s linear infinite;
+  --animate-shimmer-slow: shimmer 8s ease-in-out infinite;
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { box-shadow: 0 0 0 rgba(24, 214, 139, 0); }
+    50% { box-shadow: 0 0 15px rgba(24, 214, 139, 0.4); }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes data-flow {
+    0% { transform: translate(0, 0); opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { transform: translate(60px, 10px); opacity: 0; }
+  }
+
+  @keyframes blink-soft {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+
+  @keyframes glow-drift {
+    0%, 100% { transform: translateX(0); opacity: 0.4; }
+    50% { transform: translateX(20px); opacity: 0.7; }
+  }
+
+  @keyframes feed-row {
+    0% { opacity: 0; transform: translateY(12px); }
+    20% { opacity: 0.6; transform: translateY(0); }
+    80% { opacity: 0.6; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-12px); }
+  }
+
+  @keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @keyframes feed-slide {
+    0% { opacity: 0; transform: translateY(4px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-4px); }
+  }
+  
+  @keyframes chart-pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes draw-line {
+    0% { stroke-dashoffset: 900; opacity: 0.4; }
+    45% { stroke-dashoffset: 0; opacity: 1; }
+    80% { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: 900; opacity: 0.4; }
+  }
+
+  @keyframes scan-line {
+    0% { transform: translateX(-10px); opacity: 0; }
+    10% { opacity: 0.15; }
+    90% { opacity: 0.15; }
+    100% { transform: translateX(400px); opacity: 0; }
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-warm-cream);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

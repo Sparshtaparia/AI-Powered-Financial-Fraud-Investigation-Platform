@@ -1,7 +1,6 @@
 import time
 
-from aegis.schemas.graph import (CustomerResponse, PageRankResponse,
-                                 SubgraphResponse)
+from aegis.schemas.graph import CustomerResponse, PageRankResponse, SubgraphResponse
 from aegis.schemas.health import DependencyHealth, HealthResponse
 from fastapi import APIRouter, HTTPException
 from repositories.neo4j_repository import neo4j_repo

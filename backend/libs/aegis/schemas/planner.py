@@ -15,9 +15,12 @@ class InvestigationSummary(BaseModel):
     risk: Optional[Dict[str, Any]] = None
     graph: Optional[Dict[str, Any]] = None
     evidence: Optional[Dict[str, Any]] = None
+    eda: Optional[Dict[str, Any]] = None
+    database: Optional[Dict[str, Any]] = None
     recommendations: List[str] = []
     audit: List[Dict[str, Any]] = []
 
 
 class InvestigateRequest(BaseModel):
-    customer_id: str
+    customer_id: Optional[str] = None
+    query: Optional[str] = None

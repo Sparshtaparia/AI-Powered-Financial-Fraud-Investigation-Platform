@@ -16,6 +16,16 @@
 
 ---
 
+## 📸 Enterprise Dashboard
+
+![Dashboard Command Center](frontend/public/dashboard-1.png)
+![Dashboard Overview](frontend/public/dashboard-2.png)
+![Investigation Analysis](frontend/public/dashboard-3.png)
+![DevOps Timeline](frontend/public/dashboard-4.png)
+![Risk Report](frontend/public/dashboard-5.png)
+
+---
+
 ## 📖 Overview
 
 This platform is a unified intelligence orchestrator that accelerates Anti-Money Laundering (AML) investigations. By synthesizing predictive machine learning models with geospatial graph analytics and a cryptographically verifiable evidence ledger, the system autonomously transitions fragmented data into structured, explainable financial crime reports.
@@ -112,10 +122,12 @@ The Planner Service acts as an intelligent orchestration agent that coordinates 
 
 ## 🚀 Key Features
 
+- **Ultra-Modern Enterprise Dashboard**: A sleek, dark-mode SaaS UI inspired by top-tier platforms (Stripe/Linear style) with responsive KPI widgets and real-time execution timelines.
+- **Natural Language Investigation**: An LLM-powered orchestration agent that translates user intent into dynamic execution plans.
 - **AI-Powered Risk Scoring**: Real-time probability estimation of illicit behavior.
 - **Graph-Based Fraud Detection**: Multi-hop community tracking and cycle detection.
-- **Explainable AI (XAI)**: Transparent reasoning backing every risk score.
-- **JWT Authentication**: Zero-trust stateless security model.
+- **Explainable AI (XAI)**: Transparent reasoning backing every risk score and investigation summary.
+- **DevOps-Style Investigation Timeline**: Watch the orchestration agent progress visually across Intent Parsing, ML, Graph, and Evidence stages.
 - **Neo4j Visualization**: Interactive 2D force-graphs embedded in the UI.
 - **Evidence Integrity**: SHA-256 Merkle Tree ledger guarantees immutability.
 - **Docker & Kubernetes**: Enterprise-grade containerization and orchestration.
@@ -211,7 +223,6 @@ http://localhost:3000
 - Implementation of streaming data ingestion pipelines.
 - Kafka integration for pub/sub telemetry routing.
 - SHAP (SHapley Additive exPlanations) visualizations for localized feature importance.
-- LLM-assisted (Large Language Model) unstructured investigation summaries.
 - Real-time active monitoring and alert generation.
 
 ---

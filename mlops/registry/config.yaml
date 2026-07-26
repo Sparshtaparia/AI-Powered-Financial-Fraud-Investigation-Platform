@@ -1,0 +1,20 @@
+# AegisAML Model Registry Config
+
+registry:
+  active_models:
+    isolation_forest:
+      version: "v2.1.4"
+      stage: "Production"
+      threshold: 0.89
+    graph_sage:
+      version: "v1.0.2"
+      stage: "Staging"
+      threshold: 0.92
+    xgb_classifier:
+      version: "v3.4.1"
+      stage: "Production"
+      threshold: 0.85
+
+deployment:
+  strategy: "shadow_mode" # Run GraphSAGE in shadow mode alongside IF
+  auto_rollback_threshold: 0.05 # Rollback if false positive rate increases by 5%

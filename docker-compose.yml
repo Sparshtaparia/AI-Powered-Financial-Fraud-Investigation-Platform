@@ -38,9 +38,9 @@ services:
       context: .
       dockerfile: docker/graph-service.Dockerfile
     environment:
-      - AEGIS_NEO4J_URI=bolt://neo4j:7687
-    depends_on:
-      - neo4j
+      - AEGIS_NEO4J_URI=${AEGIS_NEO4J_URI}
+      - AEGIS_NEO4J_USER=${AEGIS_NEO4J_USER}
+      - AEGIS_NEO4J_PASSWORD=${AEGIS_NEO4J_PASSWORD}
     networks:
       - aegis_net
 
@@ -49,9 +49,7 @@ services:
       context: .
       dockerfile: docker/evidence-service.Dockerfile
     environment:
-      - AEGIS_POSTGRES_DSN=postgresql://postgres:aegis@postgres:5432/postgres
-    depends_on:
-      - postgres
+      - AEGIS_POSTGRES_DSN=${AEGIS_POSTGRES_DSN}
     networks:
       - aegis_net
 

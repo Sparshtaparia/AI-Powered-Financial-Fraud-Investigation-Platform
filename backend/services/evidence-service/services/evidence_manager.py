@@ -1,8 +1,7 @@
 import uuid
 from datetime import datetime
 
-from aegis.schemas.evidence import (CommitResponse, EvidencePayload,
-                                    VerifyResponse)
+from aegis.schemas.evidence import CommitResponse, EvidencePayload, VerifyResponse
 from repositories.ledger_repository import ledger_repo
 from services.crypto_service import crypto_service
 
