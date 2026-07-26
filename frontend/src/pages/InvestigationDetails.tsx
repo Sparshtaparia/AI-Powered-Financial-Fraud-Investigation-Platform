@@ -2,7 +2,7 @@ import { useInvestigationStore } from '../store/investigationStore'
 import { CheckCircle, AlertTriangle, ShieldAlert } from 'lucide-react'
 
 export default function InvestigationDetails() {
-    const { currentCaseId, caseData } = useInvestigationStore();
+    const { caseData } = useInvestigationStore();
 
     if (!caseData) {
         return <div className="text-center mt-20 text-slate-400">No active investigation loaded.</div>;

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Shield, Activity, FileSearch, Share2, Server, Settings, LogOut, FileCode } from 'lucide-react'
 import { useAuthStore } from '../store/authStore'

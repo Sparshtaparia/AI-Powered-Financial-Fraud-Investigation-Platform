@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Shield } from 'lucide-react'
 import { useAuthStore } from '../store/authStore'
-import * as jose from 'jose' // We can just mock a token for demo if needed, but since we rely on Gateway, we will hardcode a valid signed token for the demo user using the local secret.
+// We can just mock a token for demo if needed, but since we rely on Gateway, we will hardcode a valid signed token for the demo user using the local secret.
 
 // In a real app this would hit /login. For the hackathon/demo, we'll synthesize a token locally using a mock function since we know the HS256 secret.
 import { SignJWT } from 'jose'
