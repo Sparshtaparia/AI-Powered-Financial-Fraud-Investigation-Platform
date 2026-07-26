@@ -1,8 +1,8 @@
 FROM python:3.11-slim
 WORKDIR /app
-COPY ./libs /app/libs
-COPY ./services/ml-service /app/services/ml-service
-COPY ./artifacts /app/artifacts
+COPY ./backend/libs /app/libs
+COPY ./backend/services/ml-service /app/services/ml-service
+COPY ./backend/artifacts /app/artifacts
 RUN pip install -e /app/libs
 RUN pip install -r /app/services/ml-service/requirements.txt
 ENV PYTHONPATH=/app:/app/services/ml-service

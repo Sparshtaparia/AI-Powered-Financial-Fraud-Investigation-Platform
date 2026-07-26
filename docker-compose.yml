@@ -76,6 +76,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=aegis
       - POSTGRES_DB=postgres
+    ports:
+      - "5433:5432"
     networks:
       - aegis_net
 
@@ -83,6 +85,9 @@ services:
     image: neo4j:5.12.0
     environment:
       - NEO4J_AUTH=neo4j/password
+    ports:
+      - "7688:7687"
+      - "7474:7474"
     networks:
       - aegis_net
 

@@ -2,7 +2,7 @@ import os
 from neo4j import GraphDatabase
 
 def seed_neo4j():
-    uri = os.getenv("AEGIS_NEO4J_URI", "bolt://localhost:7687")
+    uri = os.getenv("AEGIS_NEO4J_URI", "bolt://localhost:7688")
     user = os.getenv("AEGIS_NEO4J_USERNAME", "neo4j")
     password = os.getenv("AEGIS_NEO4J_PASSWORD", "password")
 

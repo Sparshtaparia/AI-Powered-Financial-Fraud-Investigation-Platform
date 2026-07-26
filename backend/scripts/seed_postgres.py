@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 import uuid
 
 async def main():
-    dsn = os.getenv("AEGIS_POSTGRES_DSN", "postgresql://postgres:aegis@localhost:5432/postgres")
+    dsn = os.getenv("AEGIS_POSTGRES_DSN", "postgresql://postgres:aegis@localhost:5433/postgres")
     print(f"Connecting to Postgres: {dsn}")
     conn = await asyncpg.connect(dsn)
 

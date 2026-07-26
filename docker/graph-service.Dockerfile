@@ -1,8 +1,8 @@
 FROM python:3.11-slim
 WORKDIR /app
-COPY ./libs /app/libs
-COPY ./services/graph-service /app/services/graph-service
-COPY ./artifacts /app/artifacts
+COPY ./backend/libs /app/libs
+COPY ./backend/services/graph-service /app/services/graph-service
+COPY ./backend/artifacts /app/artifacts
 RUN pip install -e /app/libs
 RUN pip install -r /app/services/graph-service/requirements.txt
 ENV PYTHONPATH=/app:/app/services/graph-service

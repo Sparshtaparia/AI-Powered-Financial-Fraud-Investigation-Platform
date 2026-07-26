@@ -1,0 +1,8 @@
+{
+    "model_version": "1.0.0",
+    "features_expected": [
+        "tx_volume",
+        "velocity",
+        "age"
+    ]
+}
