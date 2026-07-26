@@ -8,4 +8,4 @@ RUN pip install -r /app/services/ml-service/requirements.txt
 ENV PYTHONPATH=/app
 ENV AEGIS_ENVIRONMENT=production
 EXPOSE 8000
-CMD ["uvicorn", "services.ml-service.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--app-dir", "/app/services/ml-service"]

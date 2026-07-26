@@ -8,4 +8,4 @@ RUN pip install -r /app/services/evidence-service/requirements.txt
 ENV PYTHONPATH=/app
 ENV AEGIS_ENVIRONMENT=production
 EXPOSE 8002
-CMD ["uvicorn", "services.evidence-service.main:app", "--host", "0.0.0.0", "--port", "8002"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8002", "--app-dir", "/app/services/evidence-service"]

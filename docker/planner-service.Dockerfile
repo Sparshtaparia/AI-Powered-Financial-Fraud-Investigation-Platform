@@ -8,4 +8,4 @@ RUN pip install -r /app/services/planner-service/requirements.txt
 ENV PYTHONPATH=/app
 ENV AEGIS_ENVIRONMENT=production
 EXPOSE 8003
-CMD ["uvicorn", "services.planner-service.main:app", "--host", "0.0.0.0", "--port", "8003"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8003", "--app-dir", "/app/services/planner-service"]

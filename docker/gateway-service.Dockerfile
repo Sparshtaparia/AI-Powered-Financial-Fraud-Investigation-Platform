@@ -8,4 +8,4 @@ RUN pip install -r /app/services/gateway-service/requirements.txt
 ENV PYTHONPATH=/app
 ENV AEGIS_ENVIRONMENT=production
 EXPOSE 8080
-CMD ["uvicorn", "services.gateway-service.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080", "--app-dir", "/app/services/gateway-service"]
