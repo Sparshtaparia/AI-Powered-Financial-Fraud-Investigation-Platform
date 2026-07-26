@@ -18,10 +18,27 @@
 
 ## 📸 Enterprise Dashboard
 
+### Command Center
 ![Dashboard Command Center](frontend/public/dashboard-1.png)
+
+<br>
+
+### Intelligent Overview
 ![Dashboard Overview](frontend/public/dashboard-2.png)
+
+<br>
+
+### Investigation Analysis
 ![Investigation Analysis](frontend/public/dashboard-3.png)
+
+<br>
+
+### DevOps-Style Timeline
 ![DevOps Timeline](frontend/public/dashboard-4.png)
+
+<br>
+
+### Explainable Risk Report
 ![Risk Report](frontend/public/dashboard-5.png)
 
 ---
