@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'aegis_services'
+    static_configs:
+      - targets:
+        - 'ml-service:8000'
+        - 'graph-service:8001'
+        - 'evidence-service:8002'
+        - 'planner-service:8003'
+        - 'gateway-service:8080'

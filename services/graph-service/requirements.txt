@@ -1,0 +1,9 @@
+-e ../../libs
+fastapi
+uvicorn
+pydantic-settings
+neo4j
+
+prometheus-fastapi-instrumentator
+
+prometheus-fastapi-instrumentator

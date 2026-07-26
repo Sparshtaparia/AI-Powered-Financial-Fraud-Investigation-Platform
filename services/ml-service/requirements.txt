@@ -1,0 +1,10 @@
+-e ../../libs
+fastapi
+uvicorn
+pydantic-settings
+pandas
+pyarrow
+
+prometheus-fastapi-instrumentator
+
+prometheus-fastapi-instrumentator

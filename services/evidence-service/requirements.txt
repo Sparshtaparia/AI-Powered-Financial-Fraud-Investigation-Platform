@@ -1,0 +1,9 @@
+-e ../../libs
+fastapi
+uvicorn
+pydantic-settings
+psycopg2-binary
+
+prometheus-fastapi-instrumentator
+
+prometheus-fastapi-instrumentator

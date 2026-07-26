@@ -1,0 +1,8 @@
+-e ../../libs
+fastapi
+uvicorn
+pydantic-settings
+httpx
+python-jose[cryptography]
+slowapi
+prometheus-fastapi-instrumentator

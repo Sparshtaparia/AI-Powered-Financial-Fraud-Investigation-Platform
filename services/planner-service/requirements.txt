@@ -1,0 +1,10 @@
+-e ../../libs
+fastapi
+uvicorn
+pydantic-settings
+langgraph
+httpx
+
+prometheus-fastapi-instrumentator
+
+prometheus-fastapi-instrumentator

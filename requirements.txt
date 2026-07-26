@@ -1,0 +1,14 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+xgboost
+torch
+torch-geometric
+neo4j
+langchain
+langgraph
+jupyter
+mlflow
+shap
